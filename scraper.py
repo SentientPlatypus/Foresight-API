@@ -7,7 +7,7 @@ import json
 from bs4 import BeautifulSoup, Tag
 import pprint
 import re
-
+"""SCRAPES OFF GFINANCE"""
 
 def getPercentChange(current, previous) ->str:
     """percent difference. Example:\n

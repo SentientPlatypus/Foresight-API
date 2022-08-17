@@ -1,11 +1,8 @@
-from gettext import find
-from tkinter import EW
 from flask import Flask,render_template, request, session, redirect, url_for
 import ssl
 from threading import Thread
 import pandas as pd
 import requests
-from sqlalchemy import false, true
 import yfinance as yf
 import constants
 from bs4 import BeautifulSoup
