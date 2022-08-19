@@ -6,15 +6,11 @@ import requests
 import yfinance as yf
 import constants
 from bs4 import BeautifulSoup
-import tensorflow as tf
 from scraper import *
 from flask_cors import CORS
 import numpy as np
 import yfinance as yf
-from keras import Sequential
-from keras.layers import Dense
-from keras.layers import LSTM
-from sklearn.preprocessing import MinMaxScaler
+
 
 
 context = ssl.create_default_context()

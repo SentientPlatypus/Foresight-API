@@ -126,7 +126,10 @@ def scrapeNews(soup:BeautifulSoup) -> dict:
 
 
 def scrapeCompanyDesc(soup:BeautifulSoup) ->str:
-    return re.sub("\. Wikipedia$","",soup.find("div", {"class":"bLLb2d"}).text)
+    try:
+        return re.sub("\. Wikipedia$","",soup.find("div", {"class":"bLLb2d"}).text)
+    except:
+        return "No Description available"
 
 def getFloat(num:str) ->float:
     """Returns the float of a number containing symbols
