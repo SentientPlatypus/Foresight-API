@@ -1,4 +1,4 @@
-from stockApi import app
+from app.stockApi import app
 
 if __name__ == "__main__":
         app.run()

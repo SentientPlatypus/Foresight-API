@@ -8,7 +8,6 @@ from bs4 import BeautifulSoup, Tag
 import pprint
 import re
 """SCRAPES OFF GFINANCE"""
-
 def getPercentChange(current, previous) ->str:
     """percent difference. Example:\n
     >>> getPriceChangeStr(12, 10))\n
