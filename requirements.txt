@@ -1,0 +1,12 @@
+beautifulsoup4==4.11.1
+Flask==2.0.1
+Flask_Cors==3.0.10
+keras==2.9.0
+keras_nightly==2.8.0.dev2021111808
+numpy==1.20.2
+pandas==1.4.3
+pandas_stubs==1.2.0.38
+requests==2.27.1
+scikit_learn==1.1.2
+tensorflow==2.8.0
+yfinance==0.1.70
