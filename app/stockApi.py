@@ -26,7 +26,6 @@ def createApp():
     static_folder=r"static"
     )
     return app
-
 app = createApp()
 
 CORS(app)
