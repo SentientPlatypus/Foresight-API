@@ -4,7 +4,7 @@ from threading import Thread
 import pandas as pd
 import requests
 import yfinance as yf
-import constants as constants
+import constants
 from bs4 import BeautifulSoup
 import tensorflow as tf
 from scraper import *
