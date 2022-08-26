@@ -7,5 +7,5 @@ pandas==1.4.3
 pandas_stubs==1.2.0.38
 requests==2.27.1
 scikit_learn==1.1.2
-tensorflow==2.8.0
+tensorflow-cpu==2.8.0
 yfinance==0.1.70
