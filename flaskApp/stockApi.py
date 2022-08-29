@@ -82,7 +82,7 @@ def getFinancials(ticker:str) -> dict:
 def getNumbers(ticker:str):
     toDisplay:pd.DataFrame = yf.download(ticker, period="max", progress=False)
 
-    df:pd.DataFrame = yf.download(ticker, period="1y", progress=False)
+    df:pd.DataFrame = yf.download(ticker, period="6m", progress=False)
     y = df['Close'].fillna(method='ffill')
     y = y.values.reshape(-1, 1)
 
