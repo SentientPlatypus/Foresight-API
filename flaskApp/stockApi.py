@@ -8,7 +8,7 @@ from flaskApp import constants
 from bs4 import BeautifulSoup
 import tensorflow as tf
 from flaskApp.scraper import *
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 import numpy as np
 import yfinance as yf
 from keras import Sequential
@@ -29,9 +29,11 @@ def createApp():
     return app
 app = createApp()
 
-CORS(app)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route("/isTickerValid/<string:ticker>")
+@cross_origin()
 def isTickerValid(ticker:str) -> str:
     """Checks if ticker is valid."""
     data = requests.get(f"{constants.GOOGLE_FINANCE_URL}{ticker}", headers=constants.REQ_HEADER).text
@@ -42,6 +44,7 @@ def isTickerValid(ticker:str) -> str:
         return constants.TRUE if soup.find("div", {"class":"zzDege"}) else constants.FALSE
 
 @app.route("/getInfo/<string:ticker>")
+@cross_origin()
 def getInfo(ticker:str) -> dict:
     """Prerequisite is that ticker must be valid. Use isTickerValid for this."""
     scrapingURL = getScrapingURL(ticker)
@@ -61,6 +64,7 @@ def getInfo(ticker:str) -> dict:
     return info_we_need
 
 @app.route("/getFinancials/<string:ticker>")
+@cross_origin()
 def getFinancials(ticker:str) -> dict:
     scrapingURL = getScrapingURL(ticker)
     print(scrapingURL)
@@ -75,6 +79,7 @@ def getFinancials(ticker:str) -> dict:
 
 
 @app.route("/getNumbers/<string:ticker>")
+@cross_origin()
 def getNumbers(ticker:str):
     toDisplay:pd.DataFrame = yf.download(ticker, period="max", progress=False)
 
@@ -143,6 +148,7 @@ def getNumbers(ticker:str):
 
 
 @app.route("/getNews/<string:ticker>")
+@cross_origin()
 def getNews(ticker:str) -> dict:
     scrapingURL = getScrapingURL(ticker=ticker)
     data = requests.get(scrapingURL, headers=constants.REQ_HEADER).text
@@ -150,6 +156,7 @@ def getNews(ticker:str) -> dict:
     return scrapeNews(soup)
 
 @app.route("/")
+@cross_origin()
 def home():
     return {"stocks":0, "maidens":0}
 
