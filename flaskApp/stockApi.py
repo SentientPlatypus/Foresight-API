@@ -16,7 +16,6 @@ from keras.layers import Dense
 from keras.layers import LSTM
 from sklearn.preprocessing import MinMaxScaler
 
-
 context = ssl.create_default_context()
 
 
@@ -139,8 +138,11 @@ def getNumbers(ticker:str):
     results["Open"] = results["Forecast"]
     results["High"] = results["Forecast"]
     results["Low"] = results["Forecast"]
-    results["Close"] = results["Forecast"]
+    resultsShifted = results.shift(-1)
+    results["Close"] = resultsShifted["Open"]
     final = pd.concat([toDisplay, results], sort=False, join="inner")
+
+    print(final)
     csv_df = final.to_csv()
     newStr = str(csv_df)
     return newStr[24:]
