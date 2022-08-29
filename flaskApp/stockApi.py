@@ -82,7 +82,7 @@ def getFinancials(ticker:str) -> dict:
 def getNumbers(ticker:str):
     toDisplay:pd.DataFrame = yf.download(ticker, period="max", progress=False)
 
-    df:pd.DataFrame = yf.download(ticker, period="6m", progress=False)
+    df:pd.DataFrame = yf.download(ticker, period="6mo", progress=False)
     y = df['Close'].fillna(method='ffill')
     y = y.values.reshape(-1, 1)
 
@@ -141,8 +141,6 @@ def getNumbers(ticker:str):
     resultsShifted = results.shift(-1)
     results["Close"] = resultsShifted["Open"]
     final = pd.concat([toDisplay, results], sort=False, join="inner")
-
-    print(final)
     csv_df = final.to_csv()
     newStr = str(csv_df)
     return newStr[24:]
