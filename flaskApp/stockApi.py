@@ -4,7 +4,7 @@ from threading import Thread
 import pandas as pd
 import requests
 import yfinance as yf
-import constants
+from flaskApp import constants
 from bs4 import BeautifulSoup
 import tensorflow as tf
 from scraper import *
@@ -18,6 +18,7 @@ from sklearn.preprocessing import MinMaxScaler
 
 
 context = ssl.create_default_context()
+
 
 def createApp():
     app = Flask(

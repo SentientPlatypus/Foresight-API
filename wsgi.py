@@ -1,4 +1,4 @@
-from app.stockApi import app
+from flaskApp.stockApi import app
 
 if __name__ == "__main__":
     app.run()

@@ -1,5 +1,5 @@
 from turtle import getscreen
-import constants
+from flaskApp import constants
 import yfinance as yf   
 import requests
 import pandas as pd
