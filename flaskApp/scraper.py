@@ -1,11 +1,9 @@
-from turtle import getscreen
 from flaskApp import constants
 import yfinance as yf   
 import requests
 import pandas as pd
 import json
 from bs4 import BeautifulSoup, Tag
-import pprint
 import re
 """SCRAPES OFF GFINANCE"""
 def getPercentChange(current, previous) ->str:
