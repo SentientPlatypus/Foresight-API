@@ -7,7 +7,7 @@ import yfinance as yf
 from flaskApp import constants
 from bs4 import BeautifulSoup
 import tensorflow as tf
-from scraper import *
+from flaskApp.scraper import *
 from flask_cors import CORS
 import numpy as np
 import yfinance as yf
