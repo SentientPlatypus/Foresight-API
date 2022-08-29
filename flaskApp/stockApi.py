@@ -93,7 +93,7 @@ def getNumbers(ticker:str):
 
     # generate the input and output sequences
     n_lookback = 60  # length of input sequences (lookback period)
-    n_forecast = 90  # length of output sequences (forecast period)
+    n_forecast = 30  # length of output sequences (forecast period)
 
     X = []
     Y = []
