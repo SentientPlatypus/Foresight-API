@@ -158,7 +158,7 @@ def getNews(ticker:str) -> dict:
 @app.route("/")
 @cross_origin()
 def home():
-    return {"stocks":0, "maidens":0}
+    return render_template("./index.html")
 
 
 if __name__ == '__main__':

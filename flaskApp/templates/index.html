@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Foresight API</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/indexStyles.css') }}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.1/css/all.css. ">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/loaderStyle.css') }}">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/sideBarStyle.css') }}">
+
+        <link rel="icon" href="{{ url_for('static',filename='images/ForesightLogoNoText.png') }}">
+        <script src="https://kit.fontawesome.com/1b4a129057.js" crossorigin="anonymous"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/animation.gsap.min.js" integrity="sha512-5/OHwmQzDSBS0Ous4/hlYoWLHd06/d2r7LdKZQVBXOA6PvOqWVXtdboiLTU7lQTGyVoKVTNkwi0ol4gHGlw5ww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/debug.addIndicators.min.js" integrity="sha512-RvUydNGlqYJapy0t4AH8hDv/It+zKsv4wOQGb+iOnEfa6NnF2fzjXgRy+FDjSpMfC3sjokNUzsfYZaZ8QAwIxg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="{{url_for('static', filename='js/sideBarHandler.js')}}"></script>
+
+    </head>
+    <body class="preload">
+        <div id="loader-wrapper">
+            <div id="loading-bar-spinner" class="spinner">
+                <div class="spinner-icon">
+                </div>
+            </div>
+        </div>
+        <script src="{{url_for('static', filename='js/loader.js')}}"></script>
+
+        <div class="header">
+            <a href="/home" id="logo">
+                <img class="logo" src="{{ url_for('static',filename='images/ForesightLogo.png') }}" alt="Foresight">
+            </a>
+        </div>
+        <div class="HeroContainer">            
+            <div class="HeroHeader">
+                <h1 class="HeroText">
+                    The Foresight API
+                </h1>
+                <h3 class="HeroSub">
+                    The brain behind <a href="https://foresight.herokuapp.com">Foresight</a>
+                </h3>
+            </div>
+        </div>
+        <section id="about">
+            <div id="aboutContainer">
+                <div id="aboutText">
+                    <h2>Endpoints</h2>
+                    <table>
+                        <tr>
+                            <th>Endpoint</th>
+                            <th style="width: 50%;">Description</th>
+                            <th>Example</th> 
+                        </tr>
+                        <tr>
+                            <td>/getNumbers/&lt;string:ticker&gt;</td>
+                            <td>Returns a CSV string of the Open, High, Low, and Close values up to one month in the future</td>
+                            <td>https://foresightapi.herokuapp.com/getNumbers/tsla</td>
+                        </tr>
+                        <tr>
+                            <td>/getNews/&lt;string:ticker&gt;</td>
+                            <td>Returns a dictionary of news articles including title, publication time, and url.</td>
+                            <td>https://foresightapi.herokuapp.com/getNews/tsla</td>
+                        </tr>
+                        <tr>
+                            <td>/getInfo/&lt;string:ticker&gt;</td>
+                            <td>Returns a dictionary of basic company info like name, logo, description, current value, and change.</td>
+                            <td>https://foresightapi.herokuapp.com/getInfo/tsla</td>
+                        </tr>
+                        <tr>
+                            <td>/getFinancials/&lt;string:ticker&gt;</td>
+                            <td>Returns a dictionary of the Income statement, Balance sheet, and cash flow.</td>
+                            <td>https://foresightapi.herokuapp.com/getFinancials/tsla</td>
+                        </tr>
+                        <tr>
+                            <td>/isTickerValid/&lt;string:ticker&gt;</td>
+                            <td>Returns a "true" if valid, "false" if its not.</td>
+                            <td>https://foresightapi.herokuapp.com/isTickerValid/tsla</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm3">
+                        <h5>Get started</h5>
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="https://foresight.herokuapp.com/about">About</a></li>
+                            <li><a href="https://foresight.herokuapp.com/howItWorks">How it works</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm3">
+                        <h5>Support</h5>
+                        <ul>
+                            <li>
+                                <a href="https://resonance-website.sentientplatypu.repl.co/#contact">Contact us</a>
+                            </li>
+                        </ul>  
+                    </div>
+                    <div class="col-sm3">
+                        <h5>Legal</h5>
+                        <ul>
+                            <li>
+                                <a href="https://foresight.herokuapp.com/legal">Our policy</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2022 <a href="https://resonance-website.sentientplatypu.repl.co">Resonance</a>
+            </div>
+        </footer>
+        <div class="background hidden" id="background">
+        </div>
+        <script src="{{ url_for('static',filename='js/indexScrollmagic.js') }}"></script>
+
+
+
+
+
+
+
+
+    </body>
