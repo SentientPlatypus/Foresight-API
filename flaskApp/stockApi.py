@@ -28,8 +28,10 @@ def createApp():
     return app
 app = createApp()
 
-cors = CORS(app)
+
 app.config['CORS_HEADERS'] = 'Content-Type'
+cors = CORS(app)
+
 
 @app.route("/isTickerValid/<string:ticker>")
 @cross_origin()
@@ -139,6 +141,7 @@ def getNumbers(ticker:str):
     resultsShifted = results.shift(-1)
     results["Close"] = resultsShifted["Open"]
     final = pd.concat([toDisplay, results], sort=False, join="inner")
+    print(final)
     csv_df = final.to_csv()
     newStr = str(csv_df)
     return newStr[24:]
