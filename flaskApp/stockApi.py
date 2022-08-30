@@ -112,7 +112,7 @@ def getNumbers(ticker:str):
     model.add(Dense(n_forecast))
 
     model.compile(loss='mean_squared_error', optimizer='adam')
-    model.fit(X, Y, epochs=100, batch_size=32, verbose=0)
+    model.fit(X, Y, epochs=75, batch_size=32, verbose=0)
 
     # generate the forecasts
     X_ = y[- n_lookback:]  # last available input sequence
