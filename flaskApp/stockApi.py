@@ -94,14 +94,12 @@ def getNumbers(ticker:str):
     # generate the input and output sequences
     n_lookback = 60  # length of input sequences (lookback period)
     n_forecast = 30  # length of output sequences (forecast period)
-
     X = []
     Y = []
-
+    
     for i in range(n_lookback, len(y) - n_forecast + 1):
         X.append(y[i - n_lookback: i])
         Y.append(y[i: i + n_forecast])
-
     X = np.array(X)
     Y = np.array(Y)
 
