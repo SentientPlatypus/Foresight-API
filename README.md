@@ -4,4 +4,6 @@
 Foresight splits its operations into two different applications. The display is done by its webapp, while the computation is done by this API. 
 The API is essentially a clump of webscraping and machine learning functions. 
 
+You can access it here: https://foresightapi.herokuapp.com
+
 have fun.
